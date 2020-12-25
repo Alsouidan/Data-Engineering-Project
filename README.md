@@ -35,3 +35,18 @@
 ###### We also engineer a feature representing the total percentage of immunized diseases in a country. We do this by adding the percentages of all the immunized diseases,i.e Hepatitis B, Diptheria, and Polio and dividing their sum by the total number of diseases immunized recorded.
 # Milestone 2B
 ## Description of the pipeline
+There are 8 tasks in the pipeline, one task for extraction and one task for data cleaning, tidying and transformation per dataset. In the dag file we grouped the data cleaning, tidying and transformation tasks into a group dependency then it precceeds the merging task. After the merging task we have the feature engineering task then the storing as csv task.
+So the pipeline is as follows.
+T1 is Extraction of first dataset
+T2 is Cleaning and tidying and transformation of this dataset
+T3 is Extraction of first dataset
+T4 is Cleaning and tidying and transformation of this dataset
+T5 is Extraction of first dataset
+T6 is Cleaning and tidying and transformation of this dataset
+T7 is the merging task
+T8 is the feature enigneering task
+T9 is the storing as csv task
+T1 >> T2
+T3 >> T4
+T5 >> T6
+[T2,T4,T6] >> T7>> T8 >> T9
